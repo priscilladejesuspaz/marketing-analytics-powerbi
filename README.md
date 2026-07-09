@@ -72,8 +72,7 @@ marketing-analytics-powerbi/
 │   ├── 01_visao_geral.png
 │   ├── 02_modelo.png
 │   └── 03_insights.png
-└── data/
-    └── fonte_dos_dados.md
+
 ```
 
 ## 🧰 Stack
