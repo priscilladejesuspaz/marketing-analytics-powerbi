@@ -39,7 +39,7 @@ Modelo em esquema estrela com 5 tabelas:
 ## Modelo de Dados
 
 
-<img width="985" height="686" alt="images02_modelo" src="https://github.com/user-attachments/assets/4d26333c-3afe-42de-958c-ab927aababff" />)
+<img width="985" height="686" alt="images02_modelo" src="https://github.com/user-attachments/assets/4d26333c-3afe-42de-958c-ab927aababff" />
 
 
 ## 📄 Estrutura do relatório
@@ -50,7 +50,7 @@ Modelo em esquema estrela com 5 tabelas:
 ## Página de Insights e Recomendações
 
 
-<img width="1299" height="736" alt="images03_insights" src="https://github.com/user-attachments/assets/b989168e-0f26-4d0c-b6f9-9651b5b2868c" />)
+<img width="1299" height="736" alt="images03_insights" src="https://github.com/user-attachments/assets/b989168e-0f26-4d0c-b6f9-9651b5b2868c" />
 
 
 ## 🛠️ Como usar
