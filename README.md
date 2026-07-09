@@ -42,7 +42,7 @@ O projeto utiliza uma base de dados de marketing contendo informações sobre:
 
 ## Modelagem
 
-Foi utilizada uma modelagem em estrela composta por tabelas fato e dimensão.
+Foi adotada uma modelagem dimensional do tipo Estrela (Star Schema), composta por duas tabelas fato (transactions e events) e três tabelas dimensão (customers, campaigns e products), permitindo análises eficientes sobre campanhas, clientes e transações.
 
 ### Tabelas Fato
 
