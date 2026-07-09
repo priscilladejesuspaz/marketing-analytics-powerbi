@@ -1,149 +1,88 @@
-# Marketing Analytics Dashboard | Power BI
+# 📊 Marketing Analytics — Performance de Campanhas (Power BI)
 
-## Sobre o projeto
+Análise de performance de campanhas de marketing digital construída em **Power BI**, respondendo a três perguntas de negócio: **descontos aumentam o volume vendido? Quais canais convertem melhor? As estimativas de crescimento das campanhas são confiáveis?**
 
-Este projeto apresenta uma análise de desempenho de campanhas de marketing utilizando Power BI.
-
-O objetivo é transformar dados de campanhas, clientes, eventos e transações em indicadores que auxiliem gestores na avaliação da efetividade das campanhas, canais de aquisição e impacto dos descontos sobre as vendas.
+![Visão Geral do Dashboard](images/01_visao_geral.png)
 
 ---
 
-## Objetivos do projeto
+## 🎯 Problema de negócio
 
-- Avaliar o desempenho das campanhas de marketing.
-- Identificar os canais com maior taxa de conversão.
-- Analisar o impacto dos descontos na receita.
-- Comparar campanhas com e sem desconto.
-- Identificar categorias e produtos com melhor desempenho.
-- Apoiar a tomada de decisão baseada em dados.
+Times de marketing investem em descontos e múltiplos canais sem saber, com dados, o que de fato move receita e conversão. Este projeto cruza transações, campanhas, clientes e eventos de navegação para orientar três decisões: política de descontos, alocação de verba por canal e confiança no planejamento de campanhas.
 
----
+## 🔍 Principais insights
 
-## Dataset
+| # | Insight | Implicação para o negócio |
+|---|---------|---------------------------|
+| 1 | A quantidade média por transação **com e sem desconto varia entre 0% e 3%** em todas as categorias | O desconto não gera volume adicional — revisar a política de descontos, que reduz margem sem elevar vendas |
+| 2 | **E-mail é a fonte de tráfego com maior taxa de conversão (8,9%)**, à frente de paid search | Priorizar CRM/e-mail na alocação de verba antes de expandir mídia paga |
+| 3 | O crescimento esperado das campanhas (*expected uplift*) apresenta **correlação forte com a receita realizada** | O método de estimativa da empresa é consistente e pode ser usado no planejamento |
 
-O projeto utiliza uma base de dados de marketing contendo informações sobre:
+> ⚠️ Nota metodológica: a correlação do insight 3 é influenciada pelo porte das campanhas (campanhas maiores geram mais receita e maior uplift esperado). Uma evolução natural é normalizar por investimento ou nº de clientes impactados.
 
-- Campanhas
-- Clientes
-- Eventos
-- Produtos
-- Transações
+## 🗂️ Modelo de dados
 
----
+Modelo em esquema estrela com 5 tabelas:
 
-## Tecnologias utilizadas
+| Tabela | Papel | Conteúdo |
+|--------|-------|----------|
+| `transactions` | Fato | Transações com valor, quantidade e flag de desconto |
+| `campaigns` | Dimensão | Campanhas, canal e uplift esperado |
+| `customers` | Dimensão | Clientes e nível de fidelidade (loyalty tier) |
+| `products` | Dimensão | Produtos e categorias |
+| `events` | Fato | Eventos de navegação e fonte de tráfego |
 
-- Power BI
-- Power Query
-- DAX
-- Modelagem Dimensional
+![Modelo de Dados](images/02_modelo.png)
 
----
+## 📐 Principais medidas DAX
 
-## Modelagem
+- `Receita Total`
+- `Taxa de Conversão` (compras ÷ acessos, por fonte de tráfego)
+- `Quantidade Com Desconto` / `Quantidade Sem Desconto`
+- `Média Qtd Com Desconto` / `Média Qtd Sem Desconto`
+- `Compra por Nível de Fidelidade`
+- `Total de Campanhas` · `Total de Clientes`
 
-Foi adotada uma modelagem dimensional do tipo Estrela (Star Schema), composta por duas tabelas fato (transactions e events) e três tabelas dimensão (customers, campaigns e products), permitindo análises eficientes sobre campanhas, clientes e transações.
+O dicionário completo de medidas está em [`docs/medidas_dax.md`](docs/medidas_dax.md).
 
-### Tabelas Fato
+## 📄 Estrutura do relatório
 
-- Transactions
-- Events
+- **Página 1 — Visão Geral:** KPIs de receita e clientes, comparativo com/sem desconto por categoria, conversão por fonte de tráfego, funil por nível de fidelidade e dispersão uplift × receita.
+- **Página 2 — Insights e Recomendações:** leitura analítica de cada visual, com conclusões e recomendações para o negócio.
 
-### Tabelas Dimensão
+![Página de Insights](images/03_insights.png)
 
-- Campaigns
-- Customers
-- Products
+## 🛠️ Como usar
 
----
+1. Baixe o arquivo [`report/marketing_analytics.pbix`](report/)
+2. Abra no Power BI Desktop (versão mais recente)
+3. Os dados estão embutidos no modelo — não é necessária configuração de fonte
 
-## Principais KPIs
-
-- Receita Total
-- Taxa de Conversão
-- Receita por Campanha
-- Receita por Categoria
-- Receita por Canal
-- Comparativo entre campanhas com e sem desconto
-- Ticket Médio
-
----
-
-## Principais Insights
-
-- O e-mail apresentou a maior taxa de conversão entre os canais analisados.
-- Campanhas com desconto não apresentaram aumento significativo no volume de vendas quando comparadas às campanhas sem desconto.
-- Algumas categorias concentraram grande parte da receita total, indicando oportunidades de otimização das campanhas.
-- A análise permite identificar quais campanhas entregaram maior retorno para o negócio.
-
----
-
-## Estrutura do Projeto
+## 📁 Estrutura do repositório
 
 ```
 marketing-analytics-powerbi/
-
-│
-├── Marketing Analytics.pbix
 ├── README.md
+├── LICENSE
+├── .gitignore
+├── report/
+│   └── marketing_analytics.pbix
 ├── images/
-│   ├── dashboard.png
-│   ├── modelo-dados.png
-│   └── insights.png
-│
-└── docs/
-    └── medidas-dax.md
+│   ├── 01_visao_geral.png
+│   ├── 02_modelo.png
+│   └── 03_insights.png
+├── docs/
+│   └── medidas_dax.md
+└── data/
+    └── fonte_dos_dados.md
 ```
 
----
+## 🧰 Stack
 
-## Imagens
+Power BI Desktop · DAX · Power Query · Modelagem dimensional (esquema estrela)
 
-### Dashboard Geral
+## 👩‍💻 Autora
 
+**Priscilla de Jesus Paz** — profissional com 11 anos em tecnologia e qualidade de dados em sistemas de saúde pública, em transição para Análise de Dados.
 
-<img width="1299" height="735" alt="isczKVLWcp" src="https://github.com/user-attachments/assets/081efcf7-f888-4774-ad5a-76281fcc4ba9" />
-
-
-### Modelo de Dados
-
-
-<img width="985" height="686" alt="lz7z94x6sc" src="https://github.com/user-attachments/assets/cfe9ed96-a08b-4efe-b0a2-cd4f576a90b6" />
-
-
-### Página de Insights
-
-
-<img width="1299" height="736" alt="fhGDw6DIB6" src="https://github.com/user-attachments/assets/7ad9d9c2-cf28-4de9-ac42-2c5eda647b85" />
-
-
-## Possíveis melhorias
-
-- Inclusão de tabela calendário.
-- Organização das medidas em uma tabela dedicada.
-- Criação de tooltips personalizados.
-- Implementação de bookmarks.
-- Otimização do tamanho do arquivo Power BI.
-
----
-
-## Aprendizados
-
-Durante o desenvolvimento deste projeto foram aplicados conceitos de:
-
-- Modelagem Dimensional
-- Power Query
-- DAX
-- Criação de KPIs
-- Storytelling com Dados
-- Visualização de Dados
-- Análise de Marketing
-
----
-
-## Autor
-
-**Priscilla de Jesus Paz**
-
-- LinkedIn: https://linkedin.com/in/priscilla-j-paz
-- GitHub: https://github.com/priscilladejesuspaz
+[LinkedIn](https://www.linkedin.com/in/priscilla-j-paz) · [GitHub](https://github.com/priscilladejesuspaz)
