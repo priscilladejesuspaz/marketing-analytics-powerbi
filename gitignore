@@ -1,0 +1,19 @@
+# Power BI — arquivos temporários e de backup
+*.pbix.tmp
+*.pbit.tmp
+~$*
+*.abf
+
+# Dados brutos grandes (versionar apenas amostras/links)
+data/raw/
+*.csv.zip
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python (se houver scripts auxiliares)
+__pycache__/
+.ipynb_checkpoints/
+venv/
