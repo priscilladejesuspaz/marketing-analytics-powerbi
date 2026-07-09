@@ -101,17 +101,21 @@ marketing-analytics-powerbi/
 
 ### Dashboard Geral
 
-*(Adicionar imagem)*
+
+<img width="1299" height="735" alt="isczKVLWcp" src="https://github.com/user-attachments/assets/081efcf7-f888-4774-ad5a-76281fcc4ba9" />
+
 
 ### Modelo de Dados
 
-*(Adicionar imagem)*
+
+<img width="985" height="686" alt="lz7z94x6sc" src="https://github.com/user-attachments/assets/cfe9ed96-a08b-4efe-b0a2-cd4f576a90b6" />
+
 
 ### Página de Insights
 
-*(Adicionar imagem)*
 
----
+<img width="1299" height="736" alt="fhGDw6DIB6" src="https://github.com/user-attachments/assets/7ad9d9c2-cf28-4de9-ac42-2c5eda647b85" />
+
 
 ## Possíveis melhorias
 
